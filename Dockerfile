@@ -24,7 +24,7 @@ COPY --from=node /opt/ /opt/
 RUN corepack disable && corepack enable && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt update -y && apt-get upgrade -y \
-    && apt install -y wget gnupg git curl build-essential unzip wget bzip2 libdbus-glib-1-2 libpci3 \
+    && apt install -y wget gnupg git curl build-essential unzip bzip2 libdbus-glib-1-2 libpci3 \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
     && apt update -y && apt install -y google-chrome-stable \
